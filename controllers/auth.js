@@ -1,3 +1,5 @@
+const User= require('../models/User')
+
 const register =  async(req,res,next)=>{
     try {
         const newUser = new User({
@@ -9,6 +11,8 @@ const register =  async(req,res,next)=>{
         await newUser.save()
         res.status(200).send('User has been created')
     } catch (error) {
-        next(err)
+        next(error)
     }
 }
+
+module.exports = register;
