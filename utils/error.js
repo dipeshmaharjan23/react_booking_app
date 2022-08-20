@@ -1,4 +1,4 @@
-const createError=(status,message)=>{
+const createError =function (status,message){
     const err = new Error();
     err.status = status;
     err.message ="Sorry not found"

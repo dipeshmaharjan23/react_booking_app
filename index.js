@@ -5,6 +5,7 @@ const authRoute =require ('./routes/auth.js')
 const hotelsRoute =require ('./routes/hotels.js')
 const usersRoute =require ('./routes/users.js')
 const roomsRoute =require ('./routes/rooms.js')
+const cookieParser = require('cookie-parser');
 
 const app = express()
 dotenv.config();
@@ -18,7 +19,9 @@ const connect = async()=>{
         throw error;
     }
 }
-app.use(express.json())
+
+app.use(cookieParser());
+app.use(express.json());
 
 mongoose.connection.on("disconnected",()=>{
     console.log("mongo disconnected")
